@@ -20,21 +20,21 @@ namespace Tarea9Docker.Pages.crudPuesto
         }
 
         [BindProperty]
-        public Empleado Empleado { get; set; } = default!;
+        public Puesto Puesto { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Empleados == null)
+            if (id == null || _context.Puestos == null)
             {
                 return NotFound();
             }
 
-            var empleado =  await _context.Empleados.FirstOrDefaultAsync(m => m.idEmpleado == id);
-            if (empleado == null)
+            var puesto =  await _context.Puestos.FirstOrDefaultAsync(m => m.idPuesto == id);
+            if (puesto == null)
             {
                 return NotFound();
             }
-            Empleado = empleado;
+            Puesto = puesto;
             return Page();
         }
 
@@ -47,7 +47,7 @@ namespace Tarea9Docker.Pages.crudPuesto
                 return Page();
             }
 
-            _context.Attach(Empleado).State = EntityState.Modified;
+            _context.Attach(Puesto).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +55,7 @@ namespace Tarea9Docker.Pages.crudPuesto
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmpleadoExists(Empleado.idEmpleado))
+                if (!PuestoExists(Puesto.idPuesto))
                 {
                     return NotFound();
                 }
@@ -68,9 +68,9 @@ namespace Tarea9Docker.Pages.crudPuesto
             return RedirectToPage("./Index");
         }
 
-        private bool EmpleadoExists(int id)
+        private bool PuestoExists(int id)
         {
-          return (_context.Empleados?.Any(e => e.idEmpleado == id)).GetValueOrDefault();
+          return (_context.Puestos?.Any(e => e.idPuesto == id)).GetValueOrDefault();
         }
     }
 }

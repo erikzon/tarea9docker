@@ -13,7 +13,7 @@ namespace Tarea9Docker.Data
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<Puesto> Puestos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlServer(_configuration.GetConnectionString("default"));
+        => options.UseSqlServer(_configuration.GetConnectionString("contenedor"));
     }
     public class Empleado
     {

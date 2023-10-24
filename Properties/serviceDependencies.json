@@ -4,6 +4,11 @@
       "type": "mssql",
       "connectionId": "ConnectionStrings:default",
       "dynamicId": null
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:contenedor",
+      "dynamicId": null
     }
   }
 }

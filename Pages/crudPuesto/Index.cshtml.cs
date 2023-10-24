@@ -18,13 +18,13 @@ namespace Tarea9Docker.Pages.crudPuesto
             _context = context;
         }
 
-        public IList<Empleado> Empleado { get;set; } = default!;
+        public IList<Puesto> Puesto { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Empleados != null)
+            if (_context.Puestos != null)
             {
-                Empleado = await _context.Empleados.ToListAsync();
+                Puesto = await _context.Puestos.ToListAsync();
             }
         }
     }

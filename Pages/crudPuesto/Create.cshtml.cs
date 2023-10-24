@@ -24,18 +24,18 @@ namespace Tarea9Docker.Pages.crudPuesto
         }
 
         [BindProperty]
-        public Empleado Empleado { get; set; } = default!;
+        public Puesto Puesto { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Empleados == null || Empleado == null)
+          if (!ModelState.IsValid || _context.Puestos == null || Puesto == null)
             {
                 return Page();
             }
 
-            _context.Empleados.Add(Empleado);
+            _context.Puestos.Add(Puesto);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

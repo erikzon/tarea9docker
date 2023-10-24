@@ -19,40 +19,40 @@ namespace Tarea9Docker.Pages.crudPuesto
         }
 
         [BindProperty]
-      public Empleado Empleado { get; set; } = default!;
+      public Puesto Puesto { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Empleados == null)
+            if (id == null || _context.Puestos == null)
             {
                 return NotFound();
             }
 
-            var empleado = await _context.Empleados.FirstOrDefaultAsync(m => m.idEmpleado == id);
+            var puesto = await _context.Puestos.FirstOrDefaultAsync(m => m.idPuesto == id);
 
-            if (empleado == null)
+            if (puesto == null)
             {
                 return NotFound();
             }
             else 
             {
-                Empleado = empleado;
+                Puesto = puesto;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Empleados == null)
+            if (id == null || _context.Puestos == null)
             {
                 return NotFound();
             }
-            var empleado = await _context.Empleados.FindAsync(id);
+            var puesto = await _context.Puestos.FindAsync(id);
 
-            if (empleado != null)
+            if (puesto != null)
             {
-                Empleado = empleado;
-                _context.Empleados.Remove(Empleado);
+                Puesto = puesto;
+                _context.Puestos.Remove(Puesto);
                 await _context.SaveChangesAsync();
             }
 

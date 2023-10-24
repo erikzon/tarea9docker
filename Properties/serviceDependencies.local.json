@@ -6,6 +6,16 @@
       "type": "mssql.local",
       "connectionId": "ConnectionStrings:default",
       "dynamicId": null
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "",
+      "containerPorts": "1433:1433",
+      "secretStore": "LocalSecretsFile",
+      "containerName": "mssql",
+      "containerImage": "mcr.microsoft.com/mssql/server:2019-latest",
+      "type": "mssql.container",
+      "connectionId": "ConnectionStrings:contenedor",
+      "dynamicId": null
     }
   }
 }
