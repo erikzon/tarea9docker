@@ -1,0 +1,68 @@
+﻿@page "/empleadoIndex"
+@model Tarea9Docker.Pages.crudEmpleado.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].idPuesto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Empleado) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idPuesto)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.idEmpleado">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.idEmpleado">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.idEmpleado">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
